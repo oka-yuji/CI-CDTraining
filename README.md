@@ -1,0 +1,2 @@
+# CI-CDTraining
+CI/CDのテストrepository
