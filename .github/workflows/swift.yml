@@ -12,5 +12,6 @@ jobs:
     runs-on: macos-latest
 
     steps:
-    - uses: actions/checkout@v2
-   
+    - uses: actions/checkout@v1 # ソースコードをcheckout
+    - name: Build # シミュレーター向けにビルド
+      run: xcodebuild -sdk iphonesimulator -configuration Debug build 
