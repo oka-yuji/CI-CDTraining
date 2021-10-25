@@ -1,10 +1,6 @@
-name: Swift
+name: CI
 
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+on: [push] # git push をトリガーとする
 
 jobs:
   build:
@@ -13,5 +9,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1 # ソースコードをcheckout
+    - name: Select Xcode version # Xcode 12.4 を使う
+      run: sudo xcode-select -s '/Applications/Xcode_12.4.app/Contents/Developer'
+    - name: Show Xcode version
+      run: xcodebuild -version
     - name: Build # シミュレーター向けにビルド
       run: xcodebuild -sdk iphonesimulator -configuration Debug build 
